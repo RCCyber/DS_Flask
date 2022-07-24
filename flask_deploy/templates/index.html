@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test App</title>
+    <title>DS Auto</title>
 </head>
 <body>
-<h1>Printing table of {{n}} powers</h1>
+<!--h1>Printing table of {{n}} powers</h1>
 
 {% for i in range(1,14):%}
     <h3>{{n}} power {{i}} = {{n**i}}</h3>
 
 {%endfor %}
+<!-->
 
 <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
 
@@ -22,6 +23,31 @@ body{
         background-size: cover;
     }
 </style>
+
+ <div class="login">
+	<h1>Predict Car Price</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+    	<input type="text" name="Vehicle Type" placeholder="VehicleType" required="required" />
+        <input type="text" name="Registration Year" placeholder="RegistrationYear" required="required" />
+		<input type="text" name="Gearbox" placeholder="Gearbox" required="required" />
+        <input type="text" name="Power" placeholder="Power" required="required" />
+        <input type="text" name="Model" placeholder="Model" required="required" />
+        <input type="text" name="Kilometer" placeholder="Kilometer" required="required" />
+        <input type="text" name="Registration Month" placeholder="RegistrationMonth" required="required" />
+        <input type="text" name="Fuel Type" placeholder="FuelType" required="required" />
+        <input type="text" name="Brand" placeholder="Brand" required="required" />
+        <input type="text" name="Not Repaired" placeholder="NotRepaired" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
 
 </body>
 </html>
